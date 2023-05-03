@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1229AA"
+    android:backgroundTint="#673AB7"
+    tools:context="fragments.RegisterFragment">
+
+
+    <EditText
+        android:id="@+id/edPassReg"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="pass"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPassReg"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textPassReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Пароль"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/title_text_reg"
+        app:layout_constraintTop_toBottomOf="@+id/edNumberReg"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/title_text_reg"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Регистрация"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textFirstNameReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Имя"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/title_text_reg"
+        app:layout_constraintTop_toBottomOf="@+id/title_text_reg"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/edFirstNameReg"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="name"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFirstNameReg"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textSecNameReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Фамилия"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/title_text_reg"
+        app:layout_constraintTop_toBottomOf="@+id/edFirstNameReg"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/edSecNameReg"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="sname"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSecNameReg"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textEmailReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Email"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/title_text_reg"
+        app:layout_constraintTop_toBottomOf="@+id/edSecNameReg"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/edEmailReg"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="email"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEmailReg"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textNumberReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Телефон"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/title_text_reg"
+        app:layout_constraintTop_toBottomOf="@+id/edEmailReg"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/edNumberReg"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="phone"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNumberReg"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickReg"
+        android:text="Зарегистрироваться"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edPassReg" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
