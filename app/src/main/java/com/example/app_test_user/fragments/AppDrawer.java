@@ -42,17 +42,17 @@ public class AppDrawer{
                 .addDrawerItems(
                         new PrimaryDrawerItem().withIdentifier(100)
                                 .withIconTintingEnabled(true)
-                                .withName("Создать группу")
+                                .withName("Профиль")
                                 .withSelectable(false),
                                 //.withIcon(R.drawable.ic_menu_create_groups),
                         new PrimaryDrawerItem().withIdentifier(101)
                                 .withIconTintingEnabled(true)
-                                .withName("Создать секретный чат")
+                                .withName("Пройти тест")
                                 .withSelectable(false),
                                 //.withIcon(R.drawable.ic_menu_secret_chat),
                         new PrimaryDrawerItem().withIdentifier(102)
                                 .withIconTintingEnabled(true)
-                                .withName("Создать канал")
+                                .withName("Контакты")
                                 .withSelectable(false)).build();
                                 //.withIcon(R.drawable.ic_menu_create_channel),
 
