@@ -1,174 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    tools:context=".CreateTestActivity">
-
-<EditText
-    android:id="@+id/edPassReg"
-    android:layout_width="300dp"
-    android:layout_height="48dp"
-    android:layout_marginTop="4dp"
-    android:ems="10"
-    android:hint="pass"
-    android:inputType="textPersonName"
-    android:textColor="@color/white"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textPassReg"
-    tools:ignore="MissingConstraints" />
-
-<TextView
-    android:id="@+id/textPassReg"
-    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="24dp"
-    android:text="Пароль"
-    android:textColor="@color/white"
-    android:textStyle="bold"
-    app:layout_constraintStart_toStartOf="@+id/title_text_reg"
-    app:layout_constraintTop_toBottomOf="@+id/edNumberReg"
-    tools:ignore="MissingConstraints" />
+    android:fillViewport="true"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp">
 
-<TextView
-    android:id="@+id/title_text_reg"
-    android:layout_width="300dp"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="50dp"
-    android:text="Регистрация"
-    android:textAlignment="center"
-    android:textColor="@color/white"
-    android:textSize="40sp"
-    android:textStyle="bold"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.494"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
 
-<TextView
-    android:id="@+id/textFirstNameReg"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="48dp"
-    android:text="Имя"
-    android:textColor="@color/white"
-    android:textStyle="bold"
-    app:layout_constraintStart_toStartOf="@+id/title_text_reg"
-    app:layout_constraintTop_toBottomOf="@+id/title_text_reg"
-    tools:ignore="MissingConstraints" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back"
+        tools:context=".CreateTestActivity">
 
-<EditText
-    android:id="@+id/edFirstNameReg"
-    android:layout_width="300dp"
-    android:layout_height="48dp"
-    android:layout_marginTop="4dp"
-    android:ems="10"
-    android:hint="name"
-    android:inputType="textPersonName"
-    android:textColor="@color/white"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.494"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textFirstNameReg"
-    tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/title_text_reg2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Регистрация"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-<TextView
-    android:id="@+id/textSecNameReg"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="24dp"
-    android:text="Фамилия"
-    android:textColor="@color/white"
-    android:textStyle="bold"
-    app:layout_constraintStart_toStartOf="@+id/title_text_reg"
-    app:layout_constraintTop_toBottomOf="@+id/edFirstNameReg"
-    tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/txtSection"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Раздел"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/edSection"
+            app:layout_constraintTop_toBottomOf="@+id/title_text_reg2"
+            tools:ignore="MissingConstraints" />
 
-<EditText
-    android:id="@+id/edSecNameReg"
-    android:layout_width="300dp"
-    android:layout_height="48dp"
-    android:layout_marginTop="4dp"
-    android:ems="10"
-    android:hint="sname"
-    android:inputType="textPersonName"
-    android:textColor="@color/white"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.495"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textSecNameReg"
-    tools:ignore="MissingConstraints" />
+        <EditText
+            android:id="@+id/edSection"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="#57ffffff"
+            android:ems="10"
+            android:hint="Section"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtSection"
+            tools:ignore="MissingConstraints" />
 
-<TextView
-    android:id="@+id/textEmailReg"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="24dp"
-    android:text="Email"
-    android:textColor="@color/white"
-    android:textStyle="bold"
-    app:layout_constraintStart_toStartOf="@+id/title_text_reg"
-    app:layout_constraintTop_toBottomOf="@+id/edSecNameReg"
-    tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/txtNumbQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Номер вопроса"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/edNumbQuestion"
+            app:layout_constraintTop_toBottomOf="@+id/edSection"
+            tools:ignore="MissingConstraints" />
 
-<EditText
-    android:id="@+id/edEmailReg"
-    android:layout_width="300dp"
-    android:layout_height="48dp"
-    android:layout_marginTop="4dp"
-    android:ems="10"
-    android:hint="email"
-    android:inputType="textPersonName"
-    android:textColor="@color/white"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.495"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textEmailReg"
-    tools:ignore="MissingConstraints" />
+        <EditText
+            android:id="@+id/edNumbQuestion"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="#57ffffff"
+            android:ems="10"
+            android:hint="Number"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNumbQuestion"
+            tools:ignore="MissingConstraints" />
 
-<TextView
-    android:id="@+id/textNumberReg"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="24dp"
-    android:text="Телефон"
-    android:textColor="@color/white"
-    android:textStyle="bold"
-    app:layout_constraintStart_toStartOf="@+id/title_text_reg"
-    app:layout_constraintTop_toBottomOf="@+id/edEmailReg"
-    tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/txtQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Текст вопроса"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/edQuestion"
+            app:layout_constraintTop_toBottomOf="@+id/edNumbQuestion"
+            tools:ignore="MissingConstraints" />
 
-<EditText
-    android:id="@+id/edNumberReg"
-    android:layout_width="300dp"
-    android:layout_height="48dp"
-    android:layout_marginTop="4dp"
-    android:ems="10"
-    android:hint="phone"
-    android:inputType="textPersonName"
-    android:textColor="@color/white"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.495"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textNumberReg"
-    tools:ignore="MissingConstraints" />
+        <EditText
+            android:id="@+id/edQuestion"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="#57ffffff"
+            android:ems="10"
+            android:hint="Text"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtQuestion"
+            tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/btn_reg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickReg"
-        android:text="Зарегистрироваться"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/txtAnswer1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Ответ1"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/edAnswer1"
+            app:layout_constraintTop_toBottomOf="@+id/edQuestion"
+            tools:ignore="MissingConstraints" />
 
+        <EditText
+            android:id="@+id/edAnswer1"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="#57ffffff"
+            android:ems="10"
+            android:hint="Answer1"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtAnswer1"
+            tools:ignore="MissingConstraints" />
 
+        <TextView
+            android:id="@+id/txtAnswer2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Ответ2"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/edAnswer2"
+            app:layout_constraintTop_toBottomOf="@+id/edAnswer1"
+            tools:ignore="MissingConstraints" />
 
+        <EditText
+            android:id="@+id/edAnswer2"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="#57ffffff"
+            android:ems="10"
+            android:hint="Answer2"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtAnswer2"
+            tools:ignore="MissingConstraints" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/txtAnswer3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Ответ3"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/edAnswer3"
+            app:layout_constraintTop_toBottomOf="@+id/edAnswer2"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/edAnswer3"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="#57ffffff"
+            android:ems="10"
+            android:hint="Answer3"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtAnswer3"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/txtAnswer4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Ответ4"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/edAnswer4"
+            app:layout_constraintTop_toBottomOf="@+id/edAnswer3"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/edAnswer4"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="#57ffffff"
+            android:ems="10"
+            android:hint="Answer4"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtAnswer4"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/txtCorrectAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Правильный ответ"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/edCorrectAnswer"
+            app:layout_constraintTop_toBottomOf="@+id/edAnswer4"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/edCorrectAnswer"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="#57ffffff"
+            android:ems="10"
+            android:hint="Correct answer"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCorrectAnswer"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btn_add_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:onClick="onClickAddQuestion"
+            android:text="Добавить вопрос"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edCorrectAnswer" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.app_test_user.CreateTestActivity;
 import com.example.app_test_user.R;
 import com.example.app_test_user.TestActivity;
 import com.example.app_test_user.databinding.FragmentLoginBinding;
@@ -87,6 +88,17 @@ public class LoginFragment extends Fragment {
         super.onStart();
         mBinding = FragmentLoginBinding.inflate(getLayoutInflater());
         init();
+
+        // кнопка перехода на добавление вопросов
+        Button btn_Question;
+        getView().findViewById(R.id.addQuestion).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(getActivity() , CreateTestActivity.class);
+                startActivity(intent1);
+            }
+        });
+        //
         getView().findViewById(R.id.btnGoToReg).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

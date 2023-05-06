@@ -16,7 +16,6 @@ import android.widget.Toast;
 import com.example.app_test_user.R;
 import com.example.app_test_user.TestActivity;
 import com.example.app_test_user.User;
-import com.example.app_test_user.databinding.FragmentLoginBinding;
 import com.example.app_test_user.databinding.FragmentRegisterBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;

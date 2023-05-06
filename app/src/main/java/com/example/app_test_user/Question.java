@@ -5,14 +5,25 @@ public class Question {
     public String  section, id, text, answer1, answer2, answer3, answer4, correct_answer;
 
     public Question() {
-        section = null;
-        id = null;
-        text = null;
-        answer1 = null;
-        answer2 = null;
-        answer3 = null;
-        answer4 = null;
-        correct_answer = null;
+        this.section = null;
+        this.id = null;
+        this.text = null;
+        this.answer1 = null;
+        this.answer2 = null;
+        this.answer3 = null;
+        this.answer4 = null;
+        this.correct_answer = null;
+    }
+
+    public Question(String section, String id, String text, String answer1, String answer2, String answer3, String answer4, String correct_answer) {
+        this.section = section;
+        this.id = id;
+        this.text = text;
+        this.answer1 = answer1;
+        this.answer2 = answer2;
+        this.answer3 = answer3;
+        this.answer4 = answer4;
+        this.correct_answer = correct_answer;
     }
 
     public void setSection(String section) {
