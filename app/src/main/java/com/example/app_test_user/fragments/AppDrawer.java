@@ -52,7 +52,7 @@ public class AppDrawer{
                                 //.withIcon(R.drawable.ic_menu_secret_chat),
                         new PrimaryDrawerItem().withIdentifier(102)
                                 .withIconTintingEnabled(true)
-                                .withName("Контакты")
+                                .withName("Результаты теста")
                                 .withSelectable(false)).build();
                                 //.withIcon(R.drawable.ic_menu_create_channel),
 

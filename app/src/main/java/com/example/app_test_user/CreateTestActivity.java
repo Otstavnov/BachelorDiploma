@@ -90,6 +90,15 @@ public class CreateTestActivity extends AppCompatActivity {
         ed_Correct_answer = findViewById(R.id.edCorrectAnswer);
         db = FirebaseDatabase.getInstance("https://otstavnovdiploma-default-rtdb.europe-west1.firebasedatabase.app");
         questions = db.getReference(QUESTION_K);
+
+//        ed_Section.setText("ООП");
+//        ed_Id.setText("ООП-1");
+//        ed_Text.setText("Java - это ... язык программирования. Заполните пропуск");
+//        ed_Answer1.setText("объектно-ориентированный");
+//        ed_Answer2.setText("функциональный");
+//        ed_Answer3.setText("теоретический");
+//        ed_Answer4.setText("Все варианты");
+//        ed_Correct_answer.setText("объектно-ориентированный");
     }
 }
 
