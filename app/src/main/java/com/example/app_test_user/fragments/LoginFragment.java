@@ -21,8 +21,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class LoginFragment extends Fragment {
@@ -32,7 +36,7 @@ public class LoginFragment extends Fragment {
     private FragmentLoginBinding mBinding = null;
     private FirebaseAuth usersAuth;
     private FirebaseDatabase db;
-    private DatabaseReference users;
+    private DatabaseReference usersRef;
     private final String USER_K = "Users";
 
     public LoginFragment() {
@@ -47,6 +51,9 @@ public class LoginFragment extends Fragment {
         edLog = view.findViewById(R.id.edLoginLog);
         edPass = view.findViewById(R.id.edPassLog);
         btn_SingIn = view.findViewById(R.id.btnSignIn);
+
+        edLog.setText("sem88@gmail.com");
+        edPass.setText("Pass9999");
 
         btn_SingIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +73,8 @@ public class LoginFragment extends Fragment {
                                 Intent intent = new Intent(getActivity() , TestActivity.class);
 
                                 Toast.makeText(getActivity(), "Успешная авторизация", Toast.LENGTH_SHORT).show();
+
+
 
                                 startActivity(intent);
 
@@ -111,7 +120,7 @@ public class LoginFragment extends Fragment {
     public void init() {
         usersAuth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance("https://otstavnovdiploma-default-rtdb.europe-west1.firebasedatabase.app");
-        users = db.getReference(USER_K);
+        usersRef = db.getReference(USER_K);
     }
 
 

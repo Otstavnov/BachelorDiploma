@@ -31,7 +31,7 @@ public class RegisterFragment extends Fragment {
 
     private FirebaseAuth usersAuth;
     private FirebaseDatabase db;
-    private DatabaseReference users;
+    private DatabaseReference usersRef;
     private final String USER_K = "Users";
 
     private FragmentRegisterBinding mBinding = null;
@@ -62,6 +62,8 @@ public class RegisterFragment extends Fragment {
                 String number = edNumber.getText().toString();
                 String pass = edPass.getText().toString();
 
+                intent.putExtra("numKey", number);
+
 
                 if (TextUtils.isEmpty(fname)) {
                     Toast.makeText(getActivity(), "Пожалуйста, введите имя", Toast.LENGTH_SHORT).show();
@@ -83,7 +85,7 @@ public class RegisterFragment extends Fragment {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
                                     User newUser = new User(fname, sname, email, number, pass);
-                                    users.child(newUser.getNumber()).setValue(newUser)
+                                    usersRef.child(newUser.getNumber()).setValue(newUser)
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void unused) {
@@ -110,7 +112,7 @@ public class RegisterFragment extends Fragment {
     public void init() {
         usersAuth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance("https://otstavnovdiploma-default-rtdb.europe-west1.firebasedatabase.app");
-        users = db.getReference(USER_K);
+        usersRef = db.getReference(USER_K);
     }
 
 }
