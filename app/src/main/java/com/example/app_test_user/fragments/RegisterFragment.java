@@ -3,6 +3,7 @@ package com.example.app_test_user.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.text.TextUtils;
@@ -17,6 +18,7 @@ import com.example.app_test_user.R;
 import com.example.app_test_user.TestActivity;
 import com.example.app_test_user.User;
 import com.example.app_test_user.databinding.FragmentRegisterBinding;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -80,6 +82,7 @@ public class RegisterFragment extends Fragment {
                 } else if (pass.length() < 6) {
                     Toast.makeText(getActivity(), "Минимальная длина пароля - 6 символов", Toast.LENGTH_SHORT).show();
                 } else {
+
                     usersAuth.createUserWithEmailAndPassword(email, pass)
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                 @Override
@@ -89,10 +92,20 @@ public class RegisterFragment extends Fragment {
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void unused) {
+                                                    intent.putExtra("userFName", newUser.getFirst_name());
+                                                    intent.putExtra("userSName", newUser.getSecond_name());
+                                                    intent.putExtra("userEmail", newUser.getEmail());
+                                                    intent.putExtra("userNumber", newUser.getNumber());
+                                                    intent.putExtra("userPass", newUser.getPass());
                                                     Toast.makeText(getActivity(), "Регистрация прошла успешно", Toast.LENGTH_SHORT).show();
                                                     startActivity(intent);
                                                 }
                                             });
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+
                                 }
                             });
                 }

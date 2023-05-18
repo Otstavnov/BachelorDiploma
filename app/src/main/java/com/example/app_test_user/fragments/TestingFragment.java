@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.app_test_user.Question;
 import com.example.app_test_user.R;
+import com.example.app_test_user.TestResult;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,14 +31,14 @@ public class TestingFragment extends Fragment {
 
     private TextView txtView;
     private Button ans1, ans2, ans3, ans4;
-    private Question q1, q2, q3, q4, q5, q6, q7, q8, q9, q10;
+    private Question q1;
     private Question tempQuestion = null;
     private List<Question> questionList;
     private Question questTemp;
     public int iter = 0;
     private String correct_ans;
     private String section;
-    private int pointOPP, pointBasic, pointArray;
+    private int pointOPP, pointBasic, pointCollection, pointExceptions, pointOperators;
 
     public TestingFragment() {
     }
@@ -61,26 +62,34 @@ public class TestingFragment extends Fragment {
             public void onClick(View view) {
                 if (correct_ans.equals(ans1.getText().toString())) {
                     switch (section) {
-                        case "ООП":
+                        case "OOP":
                             pointOPP++;
                             break;
-                        case "Коллекции":
-                            pointArray++;
+                        case "Collections":
+                            pointCollection++;
                             break;
-                        case "Базовые":
+                        case "Basic":
                             pointBasic++;
+                            break;
+                        case "Exceptions":
+                            pointExceptions++;
+                            break;
+                        case "Operators":
+                            pointOperators++;
                             break;
                     }
                 }
                 iter++;
-                questTemp = questionList.get(iter);
-                txtView.setText(questTemp.getText());
-                ans1.setText(questTemp.getAnswer1());
-                ans2.setText(questTemp.getAnswer2());
-                ans3.setText(questTemp.getAnswer3());
-                ans4.setText(questTemp.getAnswer4());
-                correct_ans = questTemp.getCorrect_answer();
-                section = questTemp.getSection();
+                if (iter < 26) {
+                    questTemp = questionList.get(iter);
+                    txtView.setText(questTemp.getText());
+                    ans1.setText(questTemp.getAnswer1());
+                    ans2.setText(questTemp.getAnswer2());
+                    ans3.setText(questTemp.getAnswer3());
+                    ans4.setText(questTemp.getAnswer4());
+                    correct_ans = questTemp.getCorrect_answer();
+                    section = questTemp.getSection();
+                }
             }
         });
 
@@ -89,26 +98,34 @@ public class TestingFragment extends Fragment {
             public void onClick(View view) {
                 if (correct_ans.equals(ans2.getText().toString())) {
                     switch (section) {
-                        case "ООП":
+                        case "OOP":
                             pointOPP++;
                             break;
-                        case "Коллекции":
-                            pointArray++;
+                        case "Collections":
+                            pointCollection++;
                             break;
-                        case "Базовые":
+                        case "Basic":
                             pointBasic++;
+                            break;
+                        case "Exceptions":
+                            pointExceptions++;
+                            break;
+                        case "Operators":
+                            pointOperators++;
                             break;
                     }
                 }
                 iter++;
-                questTemp = questionList.get(iter);
-                txtView.setText(questTemp.getText());
-                ans1.setText(questTemp.getAnswer1());
-                ans2.setText(questTemp.getAnswer2());
-                ans3.setText(questTemp.getAnswer3());
-                ans4.setText(questTemp.getAnswer4());
-                correct_ans = questTemp.getCorrect_answer();
-                section = questTemp.getSection();
+                if (iter < 26) {
+                    questTemp = questionList.get(iter);
+                    txtView.setText(questTemp.getText());
+                    ans1.setText(questTemp.getAnswer1());
+                    ans2.setText(questTemp.getAnswer2());
+                    ans3.setText(questTemp.getAnswer3());
+                    ans4.setText(questTemp.getAnswer4());
+                    correct_ans = questTemp.getCorrect_answer();
+                    section = questTemp.getSection();
+                }
             }
         });
 
@@ -117,26 +134,34 @@ public class TestingFragment extends Fragment {
             public void onClick(View view) {
                 if (correct_ans.equals(ans3.getText().toString())) {
                     switch (section) {
-                        case "ООП":
+                        case "OOP":
                             pointOPP++;
                             break;
-                        case "Коллекции":
-                            pointArray++;
+                        case "Collections":
+                            pointCollection++;
                             break;
-                        case "Базовые":
+                        case "Basic":
                             pointBasic++;
+                            break;
+                        case "Exceptions":
+                            pointExceptions++;
+                            break;
+                        case "Operators":
+                            pointOperators++;
                             break;
                     }
                 }
                 iter++;
-                questTemp = questionList.get(iter);
-                txtView.setText(questTemp.getText());
-                ans1.setText(questTemp.getAnswer1());
-                ans2.setText(questTemp.getAnswer2());
-                ans3.setText(questTemp.getAnswer3());
-                ans4.setText(questTemp.getAnswer4());
-                correct_ans = questTemp.getCorrect_answer();
-                section = questTemp.getSection();
+                if (iter < 26) {
+                    questTemp = questionList.get(iter);
+                    txtView.setText(questTemp.getText());
+                    ans1.setText(questTemp.getAnswer1());
+                    ans2.setText(questTemp.getAnswer2());
+                    ans3.setText(questTemp.getAnswer3());
+                    ans4.setText(questTemp.getAnswer4());
+                    correct_ans = questTemp.getCorrect_answer();
+                    section = questTemp.getSection();
+                }
             }
         });
 
@@ -145,26 +170,38 @@ public class TestingFragment extends Fragment {
             public void onClick(View view) {
                 if (correct_ans.equals(ans4.getText().toString())) {
                     switch (section) {
-                        case "ООП":
+                        case "OOP":
                             pointOPP++;
                             break;
-                        case "Коллекции":
-                            pointArray++;
+                        case "Collections":
+                            pointCollection++;
                             break;
-                        case "Базовые":
+                        case "Basic":
                             pointBasic++;
+                            break;
+                        case "Exceptions":
+                            pointExceptions++;
+                            break;
+                        case "Operators":
+                            pointOperators++;
                             break;
                     }
                 }
                 iter++;
-                questTemp = questionList.get(iter);
-                txtView.setText(questTemp.getText());
-                ans1.setText(questTemp.getAnswer1());
-                ans2.setText(questTemp.getAnswer2());
-                ans3.setText(questTemp.getAnswer3());
-                ans4.setText(questTemp.getAnswer4());
-                correct_ans = questTemp.getCorrect_answer();
-                section = questTemp.getSection();
+                if (iter >= 26) {
+                    TestResult userTestResult = new TestResult(pointBasic, pointCollection, pointExceptions, pointOPP, pointOperators);
+                }
+
+                if (iter < 25) {
+                    questTemp = questionList.get(iter);
+                    txtView.setText(questTemp.getText());
+                    ans1.setText(questTemp.getAnswer1());
+                    ans2.setText(questTemp.getAnswer2());
+                    ans3.setText(questTemp.getAnswer3());
+                    ans4.setText(questTemp.getAnswer4());
+                    correct_ans = questTemp.getCorrect_answer();
+                    section = questTemp.getSection();
+                }
             }
         });
 
@@ -181,23 +218,53 @@ public class TestingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_testing, container, false);
-
-
         return inflater.inflate(R.layout.fragment_testing, container, false);
     }
 
 
     public void initQuest() {
         questionList = new ArrayList<>();
-        String idSection = "ООП-";
+
+        String idSectionBasic = "Basic";
+        String idSectionCollections = "Collections";
+        String idSectionExceptions = "Exceptions";
+        String idSectionOOP = "OOP";
+        String idSectionOperators = "Operators";
+
         String id_temp = "";
-        for (int i = 2; i <= 10; i++) {
-            id_temp = idSection + i;
+        String sec_temp = "";
+
+        for (int i = 2; i <= 25; i++) {
+            sec_temp = idSectionBasic;
+            id_temp = sec_temp + "-" + i;
+            int temp;
+
+            if (i >= 6 && i <= 10) {
+                temp = i - 5;
+                sec_temp = idSectionCollections;
+                id_temp = sec_temp + "-" + temp;
+            }
+
+            if (i >= 11 && i <= 15) {
+                temp = i - 10;
+                sec_temp = idSectionExceptions;
+                id_temp = sec_temp + "-" + temp;
+            }
+            if (i >= 16 && i <= 20) {
+                temp = i - 15;
+                sec_temp = idSectionOOP;
+                id_temp = sec_temp + "-" + temp;
+            }
+            if (i >= 21) {
+                temp = i - 20;
+                sec_temp = idSectionOperators;
+                id_temp = sec_temp + "-" + temp;
+            }
             FirebaseDatabase
                     .getInstance("https://otstavnovdiploma-default-rtdb.europe-west1.firebasedatabase.app/")
                     .getReference()
                     .child("Questions")
-                    .child("ООП")
+                    .child(sec_temp)
                     .child(id_temp).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -213,105 +280,15 @@ public class TestingFragment extends Fragment {
         }
 
 
-        q1 = new Question("ООП",
-                "ООП-1",
-                "Java - это ... язык программирования. Заполните пропуск",
-                "объектно-ориентированный",
-                "функциональный",
-                "теоретический",
-                "Всё вышеперечисленное",
-                "объектно-ориентированный");
+        q1 = new Question("Basic",
+                "Basic-1",
+                "... - шаблон, определяющий переменные и методы, общие для всех его объектов определённого типа. Заполните пропуск",
+                "Объект",
+                "Класс",
+                "Метод",
+                "Интерфейс",
+                "Класс");
         questionList.add(q1);
-
-//        q2 = new Question("ООП",
-//                "ООП-2",
-//                "Java - это ... язык программирования. Заполните пропуск",
-//                "объектно-ориентированный",
-//                "функциональный",
-//                "теоретический",
-//                "Всё вышеперечисленное",
-//                "объектно-ориентированный");
-//
-//        q3 = new Question("ООП",
-//                "ООП-3",
-//                "Java - это ... язык программирования. Заполните пропуск",
-//                "объектно-ориентированный",
-//                "функциональный",
-//                "теоретический",
-//                "Всё вышеперечисленное",
-//                "объектно-ориентированный");
-//
-//        q4 = new Question("ООП",
-//                "ООП-4",
-//                "Java - это ... язык программирования. Заполните пропуск",
-//                "объектно-ориентированный",
-//                "функциональный",
-//                "теоретический",
-//                "Всё вышеперечисленное",
-//                "объектно-ориентированный");
-//
-//        q5 = new Question("ООП",
-//                "ООП-5",
-//                "Java - это ... язык программирования. Заполните пропуск",
-//                "объектно-ориентированный",
-//                "функциональный",
-//                "теоретический",
-//                "Всё вышеперечисленное",
-//                "объектно-ориентированный");
-//
-//        q6 = new Question("ООП",
-//                "ООП-6",
-//                "Java - это ... язык программирования. Заполните пропуск",
-//                "объектно-ориентированный",
-//                "функциональный",
-//                "теоретический",
-//                "Всё вышеперечисленное",
-//                "объектно-ориентированный");
-//
-//        q7 = new Question("ООП",
-//                "ООП-7",
-//                "Java - это ... язык программирования. Заполните пропуск",
-//                "объектно-ориентированный",
-//                "функциональный",
-//                "теоретический",
-//                "Всё вышеперечисленное",
-//                "объектно-ориентированный");
-//        q8 = new Question("ООП",
-//                "ООП-8",
-//                "Java - это ... язык программирования. Заполните пропуск",
-//                "объектно-ориентированный",
-//                "функциональный",
-//                "теоретический",
-//                "Всё вышеперечисленное",
-//                "объектно-ориентированный");
-//
-//        q9 = new Question("ООП",
-//                "ООП-9",
-//                "Java - это ... язык программирования. Заполните пропуск",
-//                "объектно-ориентированный",
-//                "функциональный",
-//                "теоретический",
-//                "Всё вышеперечисленное",
-//                "объектно-ориентированный");
-//
-//        q10 = new Question("ООП",
-//                "ООП-10",
-//                "Что такое наследование в Java?",
-//                "Возможность создавать новый класс на основе уже существующего",
-//                "Возможность создавать новый объект на основе уже существующего",
-//                "Возможность создавать новый интерфейс на основе уже существующего",
-//                "Возможность создавать новый метод на основе уже существующего",
-//                "Возможность создавать новый класс на основе уже существующего");
-//        questionList.add(q1);
-//        questionList.add(q2);
-//        questionList.add(q3);
-//        questionList.add(q4);
-//        questionList.add(q5);
-//        questionList.add(q6);
-//        questionList.add(q7);
-//        questionList.add(q8);
-//        questionList.add(q9);
-//        questionList.add(q10);
     }
 
     public void initView() {

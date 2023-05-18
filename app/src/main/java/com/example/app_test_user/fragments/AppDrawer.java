@@ -2,6 +2,7 @@ package com.example.app_test_user.fragments;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -19,20 +20,23 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 
+import java.util.ArrayList;
+
 public class AppDrawer {
 
     private AppCompatActivity mainActivity = null;
     private Toolbar toolbar = null;
-    private String userId;
 
-    private User user;
+    private String hhhuserId;
+
+    private User curUser;
 
 
-    public AppDrawer(AppCompatActivity mainActivity, Toolbar toolbar, String userId) {
+    public AppDrawer(AppCompatActivity mainActivity, Toolbar toolbar, User user) {
 
         this.mainActivity = mainActivity;
         this.toolbar = toolbar;
-        this.userId = userId;
+        curUser = user;
 
     }
 
@@ -40,7 +44,7 @@ public class AppDrawer {
     private AccountHeader mHeader = null;
 
     public void create() {
-        //loadUserData();
+
         createHeader();
         createDrawer();
     }
@@ -80,35 +84,15 @@ public class AppDrawer {
 
     }
 
-//    private void loadUserData() {
-//        // Забираю данные
-//        FirebaseDatabase database = FirebaseDatabase.getInstance("https://otstavnovdiploma-default-rtdb.europe-west1.firebasedatabase.app");
-//        DatabaseReference myRef = database.getReference("Users");
-//
-//        myRef.child(this.userId).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-//                    user = ds.getValue(User.class);
-//                    }
-//                // Устанавливаю слушатель на список
-//                //setUpListener();
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                // Failed to read value
-//                  }
-//        });
-//    }
-
     private void createHeader() {
+
+
         mHeader = new AccountHeaderBuilder()
                 .withActivity(mainActivity)
                 .withHeaderBackground(R.drawable.header_bg)
                 .addProfiles(
-                        new ProfileDrawerItem().withName("UserName")
-                                .withEmail(userId)
+                        new ProfileDrawerItem().withName(curUser.getFirst_name() + " " + curUser.getSecond_name())
+                                .withEmail(curUser.getNumber())
                 ).build();
     }
 

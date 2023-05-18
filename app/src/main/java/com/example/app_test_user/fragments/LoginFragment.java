@@ -2,6 +2,7 @@ package com.example.app_test_user.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.app_test_user.CreateTestActivity;
+import com.example.app_test_user.Question;
 import com.example.app_test_user.R;
 import com.example.app_test_user.TestActivity;
+import com.example.app_test_user.User;
 import com.example.app_test_user.databinding.FragmentLoginBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,6 +31,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.PrimitiveIterator;
+
 
 public class LoginFragment extends Fragment {
 
@@ -39,42 +46,56 @@ public class LoginFragment extends Fragment {
     private DatabaseReference usersRef;
     private final String USER_K = "Users";
 
+
+    private List<User> TempList;
+    private User tempUserrrr = null;
+    private User noUser;
+
     public LoginFragment() {
         super(R.layout.fragment_login);
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         edLog = view.findViewById(R.id.edLoginLog);
         edPass = view.findViewById(R.id.edPassLog);
         btn_SingIn = view.findViewById(R.id.btnSignIn);
 
-        edLog.setText("sem88@gmail.com");
-        edPass.setText("Pass9999");
+        edLog.setText("88005553535");
+        edPass.setText("Pass12345");
+
+        loadUserDB();
 
         btn_SingIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = edLog.getText().toString();
+
+                User userTemp = TempList.get(1);
+                String email = userTemp.getEmail();
                 String pass = edPass.getText().toString();
 
-                if(TextUtils.isEmpty(email))
+                SystemClock.sleep(50);
+
+                if (TextUtils.isEmpty(email))
                     Toast.makeText(getActivity(), "Введите логин", Toast.LENGTH_SHORT).show();
-                if(TextUtils.isEmpty(pass))
+                if (TextUtils.isEmpty(pass))
                     Toast.makeText(getActivity(), "Введите пароль", Toast.LENGTH_SHORT).show();
 
                 usersAuth.signInWithEmailAndPassword(email, pass)
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                Intent intent = new Intent(getActivity() , TestActivity.class);
+                                Intent intent = new Intent(getActivity(), TestActivity.class);
+                                intent.putExtra("userFName", userTemp.getFirst_name());
+                                intent.putExtra("userSName", userTemp.getSecond_name());
+                                intent.putExtra("userEmail", userTemp.getEmail());
+                                intent.putExtra("userNumber", userTemp.getNumber());
+                                intent.putExtra("userPass", userTemp.getPass());
 
                                 Toast.makeText(getActivity(), "Успешная авторизация", Toast.LENGTH_SHORT).show();
-
-
 
                                 startActivity(intent);
 
@@ -103,7 +124,7 @@ public class LoginFragment extends Fragment {
         getView().findViewById(R.id.addQuestion).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(getActivity() , CreateTestActivity.class);
+                Intent intent1 = new Intent(getActivity(), CreateTestActivity.class);
                 startActivity(intent1);
             }
         });
@@ -112,7 +133,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                getParentFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.start_main_container , new RegisterFragment()).commit();
+                getParentFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.start_main_container, new RegisterFragment()).commit();
             }
         });
     }
@@ -123,6 +144,31 @@ public class LoginFragment extends Fragment {
         usersRef = db.getReference(USER_K);
     }
 
+    private void loadUserDB() {
+
+        String idUserNumber = edLog.getText().toString();
+
+        TempList = new ArrayList<>();
+
+        FirebaseDatabase
+                .getInstance("https://otstavnovdiploma-default-rtdb.europe-west1.firebasedatabase.app/")
+                .getReference()
+                .child("Users")
+                .child(idUserNumber).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        tempUserrrr = snapshot.getValue(User.class);
+                        TempList.add(tempUserrrr);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+        noUser = new User("0", "0", "0", "0", "0");
+        TempList.add(noUser);
+    }
 
 
 }
