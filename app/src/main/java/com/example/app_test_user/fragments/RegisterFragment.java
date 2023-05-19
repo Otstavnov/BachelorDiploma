@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.app_test_user.R;
 import com.example.app_test_user.TestActivity;
+import com.example.app_test_user.TestResult;
 import com.example.app_test_user.User;
 import com.example.app_test_user.databinding.FragmentRegisterBinding;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -88,6 +89,7 @@ public class RegisterFragment extends Fragment {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
                                     User newUser = new User(fname, sname, email, number, pass);
+                                    newUser.user_test_result = new TestResult();
                                     usersRef.child(newUser.getNumber()).setValue(newUser)
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override

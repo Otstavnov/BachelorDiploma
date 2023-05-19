@@ -12,10 +12,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.app_test_user.Question;
 import com.example.app_test_user.R;
 import com.example.app_test_user.TestResult;
+import com.example.app_test_user.User;
+import com.google.android.gms.common.data.DataBuffer;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,14 +41,17 @@ public class TestingFragment extends Fragment {
     public int iter = 0;
     private String correct_ans;
     private String section;
-    private int pointOPP, pointBasic, pointCollection, pointExceptions, pointOperators;
-
-    public TestingFragment() {
+    private int pointOPP, pointBasic, pointCollections, pointExceptions, pointOperators;
+    private TestResult userTestResult;
+    private User user;
+    public TestingFragment(User loadUser) {
+        this.user = loadUser;
     }
 
     @Override
     public void onStart() {
         super.onStart();
+
         initQuest();
         initView();
         questTemp = questionList.get(0);
@@ -66,7 +72,7 @@ public class TestingFragment extends Fragment {
                             pointOPP++;
                             break;
                         case "Collections":
-                            pointCollection++;
+                            pointCollections++;
                             break;
                         case "Basic":
                             pointBasic++;
@@ -80,7 +86,13 @@ public class TestingFragment extends Fragment {
                     }
                 }
                 iter++;
-                if (iter < 26) {
+                if (iter >= 25) {
+                    userTestResult = new TestResult(pointBasic, pointCollections, pointExceptions, pointOPP, pointOperators);
+                    loadResults();
+                    getParentFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.home_main_container, new TestResultFragment(userTestResult)).commit();
+                    }
+
+                if (iter < 25) {
                     questTemp = questionList.get(iter);
                     txtView.setText(questTemp.getText());
                     ans1.setText(questTemp.getAnswer1());
@@ -102,7 +114,7 @@ public class TestingFragment extends Fragment {
                             pointOPP++;
                             break;
                         case "Collections":
-                            pointCollection++;
+                            pointCollections++;
                             break;
                         case "Basic":
                             pointBasic++;
@@ -116,7 +128,13 @@ public class TestingFragment extends Fragment {
                     }
                 }
                 iter++;
-                if (iter < 26) {
+                if (iter >= 25) {
+                    userTestResult = new TestResult(pointBasic, pointCollections, pointExceptions, pointOPP, pointOperators);
+                    loadResults();
+                    getParentFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.home_main_container, new TestResultFragment(userTestResult)).commit();
+                    }
+
+                if (iter < 25) {
                     questTemp = questionList.get(iter);
                     txtView.setText(questTemp.getText());
                     ans1.setText(questTemp.getAnswer1());
@@ -138,7 +156,7 @@ public class TestingFragment extends Fragment {
                             pointOPP++;
                             break;
                         case "Collections":
-                            pointCollection++;
+                            pointCollections++;
                             break;
                         case "Basic":
                             pointBasic++;
@@ -152,7 +170,13 @@ public class TestingFragment extends Fragment {
                     }
                 }
                 iter++;
-                if (iter < 26) {
+                if (iter >= 25) {
+                    userTestResult = new TestResult(pointBasic, pointCollections, pointExceptions, pointOPP, pointOperators);
+                    loadResults();
+                    getParentFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.home_main_container, new TestResultFragment(userTestResult)).commit();
+                    }
+
+                if (iter < 25) {
                     questTemp = questionList.get(iter);
                     txtView.setText(questTemp.getText());
                     ans1.setText(questTemp.getAnswer1());
@@ -174,7 +198,7 @@ public class TestingFragment extends Fragment {
                             pointOPP++;
                             break;
                         case "Collections":
-                            pointCollection++;
+                            pointCollections++;
                             break;
                         case "Basic":
                             pointBasic++;
@@ -188,9 +212,11 @@ public class TestingFragment extends Fragment {
                     }
                 }
                 iter++;
-                if (iter >= 26) {
-                    TestResult userTestResult = new TestResult(pointBasic, pointCollection, pointExceptions, pointOPP, pointOperators);
-                }
+                if (iter >= 25) {
+                    userTestResult = new TestResult(pointBasic, pointCollections, pointExceptions, pointOPP, pointOperators);
+                    loadResults();
+                    getParentFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.home_main_container, new TestResultFragment(userTestResult)).commit();
+                                    }
 
                 if (iter < 25) {
                     questTemp = questionList.get(iter);
@@ -291,11 +317,28 @@ public class TestingFragment extends Fragment {
         questionList.add(q1);
     }
 
-    public void initView() {
+    private void initView() {
         txtView = (TextView) getActivity().findViewById(R.id.txt_TestQuest);
         ans1 = (Button) getActivity().findViewById(R.id.btn_answer1);
         ans2 = (Button) getActivity().findViewById(R.id.btn_answer2);
         ans3 = (Button) getActivity().findViewById(R.id.btn_answer3);
         ans4 = (Button) getActivity().findViewById(R.id.btn_answer4);
     }
+
+    private void loadResults() {
+        User newUser = user;
+        newUser.user_test_result = userTestResult;
+        FirebaseDatabase dataBase = FirebaseDatabase.getInstance("https://otstavnovdiploma-default-rtdb.europe-west1.firebasedatabase.app");
+        DatabaseReference usersRef = dataBase.getReference("Users");
+        usersRef.child(newUser.getNumber()).setValue(newUser)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                        Toast.makeText(getActivity(), "Регистрация прошла успешно", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+    }
+
 }

@@ -1,16 +1,25 @@
 package com.example.app_test_user;
 
 public class TestResult {
-    public int pointsBasic, pointsCollection, pointsExceptions, pointsOPP, pointsOperators, pointsAll;
+    public int pointsBasic, pointsCollections, pointsExceptions, pointsOOP, pointsOperators, pointsAll;
 
-    public TestResult(int pointsBasic, int pointsCollection, int pointsExceptions, int pointsOPP, int pointsOperators) {
-        this.pointsBasic = pointsBasic * 4;
-        this.pointsCollection = pointsCollection * 4;
-        this.pointsExceptions = pointsExceptions * 4;
-        this.pointsOPP = pointsOPP * 4;
-        this.pointsOperators = pointsOperators * 4;
-        this.pointsAll = this.pointsBasic + this.pointsCollection + this.pointsExceptions + this.pointsOPP + this.pointsOperators;
+    public TestResult() {
+        this.pointsBasic = 0;
+        this.pointsCollections = 0;
+        this.pointsExceptions = 0;
+        this.pointsOOP = 0;
+        this.pointsOperators = 0;
+        this.pointsAll = 0;
     }
+    public TestResult(int pointsBasic, int pointsCollections, int pointsExceptions, int pointsOPP, int pointsOperators) {
+        this.pointsBasic = pointsBasic * 4;
+        this.pointsCollections = pointsCollections * 4;
+        this.pointsExceptions = pointsExceptions * 4;
+        this.pointsOOP = pointsOPP * 4;
+        this.pointsOperators = pointsOperators * 4;
+        this.pointsAll = this.pointsBasic + this.pointsCollections + this.pointsExceptions + this.pointsOOP + this.pointsOperators;
+    }
+
 
     public int getPointsBasic() {
         return pointsBasic;
@@ -20,12 +29,12 @@ public class TestResult {
         this.pointsBasic = pointsBasic;
     }
 
-    public int getPointsCollection() {
-        return pointsCollection;
+    public int getPointsCollections() {
+        return pointsCollections;
     }
 
-    public void setPointsCollection(int pointsCollection) {
-        this.pointsCollection = pointsCollection;
+    public void setPointsCollections(int pointsCollection) {
+        this.pointsCollections = pointsCollection;
     }
 
     public int getPointsExceptions() {
@@ -36,12 +45,12 @@ public class TestResult {
         this.pointsExceptions = pointsExceptions;
     }
 
-    public int getPointsOPP() {
-        return pointsOPP;
+    public int getPointsOOP() {
+        return pointsOOP;
     }
 
-    public void setPointsOPP(int pointsOPP) {
-        this.pointsOPP = pointsOPP;
+    public void setPointsOOP(int pointsOPP) {
+        this.pointsOOP = pointsOPP;
     }
 
     public int getPointsOperators() {

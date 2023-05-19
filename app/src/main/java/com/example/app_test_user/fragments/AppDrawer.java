@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.mikepenz.iconics.typeface.IIcon;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -35,8 +36,8 @@ public class AppDrawer {
     public AppDrawer(AppCompatActivity mainActivity, Toolbar toolbar, User user) {
 
         this.mainActivity = mainActivity;
-        this.toolbar = toolbar;
         curUser = user;
+        this.toolbar = toolbar;
 
     }
 
@@ -62,12 +63,12 @@ public class AppDrawer {
                                 .withIconTintingEnabled(true)
                                 .withName("Профиль")
                                 .withSelectable(false),
-                        //.withIcon(R.drawable.ic_menu_create_groups),
+
                         new PrimaryDrawerItem().withIdentifier(101)
                                 .withIconTintingEnabled(true)
                                 .withName("Пройти тест")
                                 .withSelectable(false),
-                        //.withIcon(R.drawable.ic_menu_secret_chat),
+
                         new PrimaryDrawerItem().withIdentifier(102)
                                 .withIconTintingEnabled(true)
                                 .withName("Результаты теста")
@@ -86,13 +87,15 @@ public class AppDrawer {
 
     private void createHeader() {
 
-
         mHeader = new AccountHeaderBuilder()
                 .withActivity(mainActivity)
                 .withHeaderBackground(R.drawable.header_bg)
+                .withSelectionListEnabledForSingleProfile(false)
+                .withProfileImagesClickable(false)
+                .withProfileImagesVisible(false)
                 .addProfiles(
                         new ProfileDrawerItem().withName(curUser.getFirst_name() + " " + curUser.getSecond_name())
-                                .withEmail(curUser.getNumber())
+//
                 ).build();
     }
 

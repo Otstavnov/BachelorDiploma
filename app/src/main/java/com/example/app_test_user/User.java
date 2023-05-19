@@ -3,7 +3,7 @@ package com.example.app_test_user;
 public class User {
 
     public String  first_name, second_name, email, number, pass;
-
+    public TestResult user_test_result;
     public User() {
     }
 
@@ -13,6 +13,20 @@ public class User {
         this.email = email;
         this.number = number;
         this.pass = pass;
+//        this.user_test_result.pointsBasic = 0;
+//        this.user_test_result.pointsCollections = 0;
+//        this.user_test_result.pointsExceptions = 0;
+//        this.user_test_result.pointsOPP = 0;
+//        this.user_test_result.pointsOperators = 0;
+//        this.user_test_result.pointsAll = 0;
+    }
+
+    public TestResult getUser_test_result() {
+        return user_test_result;
+    }
+
+    public void setUser_test_result(TestResult user_test_result) {
+        this.user_test_result = user_test_result;
     }
 
     public String getFirst_name() {

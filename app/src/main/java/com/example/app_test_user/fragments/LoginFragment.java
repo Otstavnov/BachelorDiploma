@@ -2,6 +2,7 @@ package com.example.app_test_user.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -46,10 +47,14 @@ public class LoginFragment extends Fragment {
     private DatabaseReference usersRef;
     private final String USER_K = "Users";
 
+    User userTemp;
+
+    String email;
 
     private List<User> TempList;
     private User tempUserrrr = null;
     private User noUser;
+    private int m = 0;
 
     public LoginFragment() {
         super(R.layout.fragment_login);
@@ -64,49 +69,14 @@ public class LoginFragment extends Fragment {
         edPass = view.findViewById(R.id.edPassLog);
         btn_SingIn = view.findViewById(R.id.btnSignIn);
 
-        edLog.setText("88005553535");
-        edPass.setText("Pass12345");
+//        edLog.setText("89034567778");
+//        edPass.setText("Pass12345");
 
-        loadUserDB();
 
         btn_SingIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                User userTemp = TempList.get(1);
-                String email = userTemp.getEmail();
-                String pass = edPass.getText().toString();
-
-                SystemClock.sleep(50);
-
-                if (TextUtils.isEmpty(email))
-                    Toast.makeText(getActivity(), "Введите логин", Toast.LENGTH_SHORT).show();
-                if (TextUtils.isEmpty(pass))
-                    Toast.makeText(getActivity(), "Введите пароль", Toast.LENGTH_SHORT).show();
-
-                usersAuth.signInWithEmailAndPassword(email, pass)
-                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                            @Override
-                            public void onSuccess(AuthResult authResult) {
-                                Intent intent = new Intent(getActivity(), TestActivity.class);
-                                intent.putExtra("userFName", userTemp.getFirst_name());
-                                intent.putExtra("userSName", userTemp.getSecond_name());
-                                intent.putExtra("userEmail", userTemp.getEmail());
-                                intent.putExtra("userNumber", userTemp.getNumber());
-                                intent.putExtra("userPass", userTemp.getPass());
-
-                                Toast.makeText(getActivity(), "Успешная авторизация", Toast.LENGTH_SHORT).show();
-
-                                startActivity(intent);
-
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getActivity(), "Ошибка авторизации", Toast.LENGTH_SHORT).show();
-
-                            }
-                        });
+                    loadUserDB();
             }
         });
 
@@ -159,6 +129,48 @@ public class LoginFragment extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         tempUserrrr = snapshot.getValue(User.class);
                         TempList.add(tempUserrrr);
+
+                        User userTemp = TempList.get(1);
+                        email = userTemp.getEmail();
+                        String pass = edPass.getText().toString();
+
+
+                        if (TextUtils.isEmpty(email))
+                            Toast.makeText(getActivity(), "Введите логин", Toast.LENGTH_SHORT).show();
+                        if (TextUtils.isEmpty(pass))
+                            Toast.makeText(getActivity(), "Введите пароль", Toast.LENGTH_SHORT).show();
+
+                        usersAuth.signInWithEmailAndPassword(email, pass)
+                                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                                    @Override
+                                    public void onSuccess(AuthResult authResult) {
+                                        Intent intent = new Intent(getActivity(), TestActivity.class);
+                                        intent.putExtra("userFName", userTemp.getFirst_name());
+                                        intent.putExtra("userSName", userTemp.getSecond_name());
+                                        intent.putExtra("userEmail", userTemp.getEmail());
+                                        intent.putExtra("userNumber", userTemp.getNumber());
+                                        intent.putExtra("userPass", userTemp.getPass());
+                                        intent.putExtra("pointsAll", userTemp.user_test_result.getPointsAll());
+                                        intent.putExtra("pointsBasic", userTemp.user_test_result.getPointsBasic());
+                                        intent.putExtra("pointsCol", userTemp.user_test_result.getPointsCollections());
+                                        intent.putExtra("pointsExc", userTemp.user_test_result.getPointsExceptions());
+                                        intent.putExtra("pointsOOP", userTemp.user_test_result.getPointsOOP());
+                                        intent.putExtra("pointsOper", userTemp.user_test_result.getPointsOperators());
+
+
+                                        Toast.makeText(getActivity(), "Успешная авторизация", Toast.LENGTH_SHORT).show();
+
+                                        startActivity(intent);
+
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(getActivity(), "Ошибка авторизации", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+
                     }
 
                     @Override
@@ -168,7 +180,8 @@ public class LoginFragment extends Fragment {
                 });
         noUser = new User("0", "0", "0", "0", "0");
         TempList.add(noUser);
-    }
 
+
+    }
 
 }
