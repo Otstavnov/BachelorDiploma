@@ -7,8 +7,11 @@
 
     <style name="BottomNavigationTextNonActiveStyle" parent="@android:style/TextAppearance">
         <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
     <style name="BottomNavigationTextActiveStyle" parent="@android:style/TextAppearance">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+
     </style>
 </resources>

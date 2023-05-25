@@ -20,21 +20,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
-        <Button
-            android:id="@+id/btn_startTest"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/txtWork2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="48dp"
             android:layout_marginEnd="20dp"
-            android:minWidth="300dp"
-            android:minHeight="150dp"
-            android:text="Начать тест"
-            android:textSize="30dp"
+            android:backgroundTint="#73A9AD"
+            android:clickable="false"
+            android:lineSpacingExtra="1dp"
+            android:lineSpacingMultiplier="1.3"
+            android:minWidth="150dp"
+            android:minHeight="80dp"
+            android:padding="18dp"
+            android:text="  Добро пожаловать в наше приложение для проверки уровня знаний языка Java! \n    Здесь вы сможете пройти тестирование и узнать свой уровень владения языком программирования. \n В своем профиле Вы можете посмотреть и изменить свои данные, а также пройти тестирование и посмотреть результаты, если ранее уже проходили тестирование. \n\n      Удачи в тестировании!"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textColor="#CEEDC7"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            app:cornerRadius="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="#CEEDC7"
+            app:strokeWidth="3dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
