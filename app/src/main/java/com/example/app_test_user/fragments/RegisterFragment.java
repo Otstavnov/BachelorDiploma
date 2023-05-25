@@ -38,12 +38,13 @@ public class RegisterFragment extends Fragment {
     private final String USER_K = "Users";
 
     private FragmentRegisterBinding mBinding = null;
+
     public RegisterFragment() {
         super(R.layout.fragment_register);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_register, container, false);
 

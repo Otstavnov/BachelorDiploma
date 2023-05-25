@@ -11,6 +11,7 @@ public class TestResult {
         this.pointsOperators = 0;
         this.pointsAll = 0;
     }
+
     public TestResult(int pointsBasic, int pointsCollections, int pointsExceptions, int pointsOPP, int pointsOperators) {
         this.pointsBasic = pointsBasic * 4;
         this.pointsCollections = pointsCollections * 4;

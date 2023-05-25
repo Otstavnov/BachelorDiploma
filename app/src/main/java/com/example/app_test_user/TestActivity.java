@@ -1,52 +1,72 @@
 package com.example.app_test_user;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+
 
 import com.example.app_test_user.databinding.TestLayoutBinding;
-import com.example.app_test_user.fragments.AppDrawer;
 import com.example.app_test_user.fragments.TestResultFragment;
 import com.example.app_test_user.fragments.TestingFragment;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class TestActivity extends AppCompatActivity {
 
-    private AppDrawer mAppDrawer = null;
     private TestLayoutBinding mBinding = null;
     private Toolbar mToolbar = null;
     private Button startTest;
     private User curUser;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initFields();
         mBinding = TestLayoutBinding.inflate(getLayoutInflater());
         setContentView(mBinding.getRoot());
+        mBinding.bottomNavigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()){
+                case R.id.profile:
+//                    getSupportFragmentManager().beginTransaction()
+//                            .replace(R.id.home_main_container, new TestResultFragment(curUser.getUser_test_result()))
+//                            .commit();
+                    break;
+                case R.id.test:
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.home_main_container, new TestingFragment(curUser))
+                            .commit();
 
+                    break;
+                case R.id.results:
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.home_main_container, new TestResultFragment(curUser.getUser_test_result()))
+                            .commit();
+                    break;
+                case R.id.exit:
+                    Intent intent = new Intent(this, StartActivity.class);
+                    startActivity(intent);
+                    break;
+
+            }
+
+
+
+
+            return true;
+        });
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        initFields();
-        setSupportActionBar(mToolbar);
-        mAppDrawer.create();
+
 
         if (curUser.user_test_result.pointsAll != 0) {
             startTest = findViewById(R.id.btn_startTest);
@@ -59,16 +79,17 @@ public class TestActivity extends AppCompatActivity {
                 }
             });
 
-        }
-        else{
+        } else {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.home_main_container, new TestResultFragment(curUser.getUser_test_result()))
                     .commit();
         }
+
+
     }
 
     private void initFields() {
-        mToolbar = mBinding.mainToolbar;
+
         Bundle arguments = getIntent().getExtras();
 
         curUser = new User();
@@ -86,9 +107,6 @@ public class TestActivity extends AppCompatActivity {
         curUser.user_test_result.pointsOOP = arguments.getInt("pointsOOP");
         curUser.user_test_result.pointsOperators = arguments.getInt("pointsOper");
 
-        mAppDrawer = new AppDrawer(this, mToolbar, curUser);
-
     }
-
 
 }

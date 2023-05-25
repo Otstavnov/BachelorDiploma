@@ -44,6 +44,7 @@ public class TestingFragment extends Fragment {
     private int pointOPP, pointBasic, pointCollections, pointExceptions, pointOperators;
     private TestResult userTestResult;
     private User user;
+
     public TestingFragment(User loadUser) {
         this.user = loadUser;
     }
@@ -90,7 +91,7 @@ public class TestingFragment extends Fragment {
                     userTestResult = new TestResult(pointBasic, pointCollections, pointExceptions, pointOPP, pointOperators);
                     loadResults();
                     getParentFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.home_main_container, new TestResultFragment(userTestResult)).commit();
-                    }
+                }
 
                 if (iter < 25) {
                     questTemp = questionList.get(iter);
@@ -132,7 +133,7 @@ public class TestingFragment extends Fragment {
                     userTestResult = new TestResult(pointBasic, pointCollections, pointExceptions, pointOPP, pointOperators);
                     loadResults();
                     getParentFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.home_main_container, new TestResultFragment(userTestResult)).commit();
-                    }
+                }
 
                 if (iter < 25) {
                     questTemp = questionList.get(iter);
@@ -174,7 +175,7 @@ public class TestingFragment extends Fragment {
                     userTestResult = new TestResult(pointBasic, pointCollections, pointExceptions, pointOPP, pointOperators);
                     loadResults();
                     getParentFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.home_main_container, new TestResultFragment(userTestResult)).commit();
-                    }
+                }
 
                 if (iter < 25) {
                     questTemp = questionList.get(iter);
@@ -216,7 +217,7 @@ public class TestingFragment extends Fragment {
                     userTestResult = new TestResult(pointBasic, pointCollections, pointExceptions, pointOPP, pointOperators);
                     loadResults();
                     getParentFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.home_main_container, new TestResultFragment(userTestResult)).commit();
-                                    }
+                }
 
                 if (iter < 25) {
                     questTemp = questionList.get(iter);
@@ -335,7 +336,7 @@ public class TestingFragment extends Fragment {
                     @Override
                     public void onSuccess(Void unused) {
 
-                        Toast.makeText(getActivity(), "Регистрация прошла успешно", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Загрузка результатов прошла успешно", Toast.LENGTH_SHORT).show();
 
                     }
                 });

@@ -76,7 +76,7 @@ public class LoginFragment extends Fragment {
         btn_SingIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    loadUserDB();
+                loadUserDB();
             }
         });
 

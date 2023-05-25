@@ -108,7 +108,6 @@ public class TestResultFragment extends Fragment {
         });
 
 
-
     }
 
     private void initView() {

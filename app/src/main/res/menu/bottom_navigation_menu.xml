@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Профиль"
+        android:icon="@drawable/icon_profile"
+        android:id="@+id/profile"/>
+    <item android:title="Тест"
+        android:icon="@drawable/icon_test"
+        android:id="@+id/test"/>
+    <item android:title="Результаты"
+        android:icon="@drawable/icon_results"
+        android:id="@+id/results"/>
+    <item android:title="Выход"
+        android:icon="@drawable/icon_exit"
+        android:id="@+id/exit"/>
+</menu>
