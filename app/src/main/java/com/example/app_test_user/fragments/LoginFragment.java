@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.app_test_user.AdminMainActivity;
 import com.example.app_test_user.CreateTestActivity;
 import com.example.app_test_user.Question;
 import com.example.app_test_user.R;
@@ -69,8 +70,8 @@ public class LoginFragment extends Fragment {
         edPass = view.findViewById(R.id.edPassLog);
         btn_SingIn = view.findViewById(R.id.btnSignIn);
 
-//        edLog.setText("89034567778");
-//        edPass.setText("Pass12345");
+      edLog.setText("89022050046");
+      edPass.setText("AdminPass12345");
 
 
         btn_SingIn.setOnClickListener(new View.OnClickListener() {
@@ -144,23 +145,28 @@ public class LoginFragment extends Fragment {
                                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                     @Override
                                     public void onSuccess(AuthResult authResult) {
-                                        Intent intent = new Intent(getActivity(), TestActivity.class);
-                                        intent.putExtra("userFName", userTemp.getFirst_name());
-                                        intent.putExtra("userSName", userTemp.getSecond_name());
-                                        intent.putExtra("userEmail", userTemp.getEmail());
-                                        intent.putExtra("userNumber", userTemp.getNumber());
-                                        intent.putExtra("userPass", userTemp.getPass());
-                                        intent.putExtra("pointsAll", userTemp.user_test_result.getPointsAll());
-                                        intent.putExtra("pointsBasic", userTemp.user_test_result.getPointsBasic());
-                                        intent.putExtra("pointsCol", userTemp.user_test_result.getPointsCollections());
-                                        intent.putExtra("pointsExc", userTemp.user_test_result.getPointsExceptions());
-                                        intent.putExtra("pointsOOP", userTemp.user_test_result.getPointsOOP());
-                                        intent.putExtra("pointsOper", userTemp.user_test_result.getPointsOperators());
+                                        if (userTemp.email.equals("admin@mail.ru") && userTemp.pass.equals("AdminPass12345")) {
+                                            Intent intent1 = new Intent(getActivity(), AdminMainActivity.class);
+                                            startActivity(intent1);
+                                        } else {
+                                            Intent intent = new Intent(getActivity(), TestActivity.class);
 
+                                            intent.putExtra("userFName", userTemp.getFirst_name());
+                                            intent.putExtra("userSName", userTemp.getSecond_name());
+                                            intent.putExtra("userEmail", userTemp.getEmail());
+                                            intent.putExtra("userNumber", userTemp.getNumber());
+                                            intent.putExtra("userPass", userTemp.getPass());
+                                            intent.putExtra("pointsAll", userTemp.user_test_result.getPointsAll());
+                                            intent.putExtra("pointsBasic", userTemp.user_test_result.getPointsBasic());
+                                            intent.putExtra("pointsCol", userTemp.user_test_result.getPointsCollections());
+                                            intent.putExtra("pointsExc", userTemp.user_test_result.getPointsExceptions());
+                                            intent.putExtra("pointsOOP", userTemp.user_test_result.getPointsOOP());
+                                            intent.putExtra("pointsOper", userTemp.user_test_result.getPointsOperators());
+                                            startActivity(intent);
+                                        }
 
                                         Toast.makeText(getActivity(), "Успешная авторизация", Toast.LENGTH_SHORT).show();
 
-                                        startActivity(intent);
 
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {

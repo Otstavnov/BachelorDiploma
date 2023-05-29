@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 import com.example.app_test_user.databinding.TestLayoutBinding;
@@ -21,7 +22,9 @@ public class TestActivity extends AppCompatActivity {
     private TestLayoutBinding mBinding = null;
     private Button startTest;
     private User curUser;
-
+    boolean btn_prof = false;
+    boolean btn_test = false;
+    boolean btn_result = false;
 
 
     @Override
@@ -31,23 +34,43 @@ public class TestActivity extends AppCompatActivity {
         mBinding = TestLayoutBinding.inflate(getLayoutInflater());
         setContentView(mBinding.getRoot());
         mBinding.bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()){
+            switch (item.getItemId()) {
                 case R.id.profile:
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.home_main_container, new UserProfileFragment(curUser))
-                            .commit();
+                    if (!btn_prof) {
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.home_main_container, new UserProfileFragment(curUser))
+                                .commit();
+                        btn_prof = true;
+                        btn_test = false;
+                        btn_result = false;
+                    }
                     break;
+
                 case R.id.test:
 
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.home_main_container, new TestingFragment(curUser))
-                            .commit();
+                    if (!btn_test) {
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.home_main_container, new TestingFragment(curUser))
+                                .commit();
+                        btn_prof = false;
+                        btn_test = true;
+                        btn_result = false;
 
+                    }
                     break;
                 case R.id.results:
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.home_main_container, new TestResultFragment(curUser.getUser_test_result()))
-                            .commit();
+                    if (curUser.user_test_result.pointsAll > 0) {
+                        if (!btn_result) {
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.home_main_container, new TestResultFragment(curUser.getUser_test_result()))
+                                    .commit();
+                            btn_prof = false;
+                            btn_test = false;
+                            btn_result = true;
+                        }
+                    } else {
+                        Toast.makeText(this, "Для просмотра резульата пройдите тест", Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 case R.id.exit:
                     Intent intent = new Intent(this, StartActivity.class);
@@ -55,8 +78,6 @@ public class TestActivity extends AppCompatActivity {
                     break;
 
             }
-
-
 
 
             return true;
@@ -67,7 +88,6 @@ public class TestActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
 
 
     }

@@ -20,8 +20,8 @@ import com.google.firebase.database.ValueEventListener;
 public class CreateTestActivity extends AppCompatActivity {
 
 
-    EditText ed_Section, ed_Id, ed_Text, ed_Answer1, ed_Answer2, ed_Answer3, ed_Answer4, ed_Correct_answer;
-    Button btnAdd;
+    private EditText ed_Section, ed_Id, ed_Text, ed_Answer1, ed_Answer2, ed_Answer3, ed_Answer4, ed_Correct_answer;
+    private Button btnAdd;
     long numb = 0;
 
     String id = "0";

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00BCD4"
+    android:backgroundTint="#86C8BC"
+    android:id="@+id/admin_main_container"
+    tools:context=".AdminMainActivity">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title_tex"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Пользователи"
+        android:textAlignment="center"
+        android:textColor="#CEEDC7"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/list_view_users"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:background="#86C8BC"
+        android:paddingLeft="5sp"
+        android:scrollbarStyle="insideOverlay"
+
+        app:layout_constraintBottom_toTopOf="@+id/bottomAdminNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_tex" />
+
+
+
+
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/bottomAdminNavigationView"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:menu="@menu/bottom_navigation_menu_admin"
+    tools:ignore="MissingConstraints"
+    app:labelVisibilityMode="labeled"
+    app:itemIconSize="35dp"
+    android:background="#73A9AD"
+    app:itemTextColor="#CEEDC7"
+    app:itemIconTint="#CEEDC7"
+    app:itemTextAppearanceActive="@style/BottomNavigationTextActiveStyle"
+    app:itemTextAppearanceInactive="@style/BottomNavigationTextNonActiveStyle" />
+/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
